@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "wechat.official-account-assistant",
+  "name": "公众号文章助手",
+  "version": "1.1.0",
+  "description": "使用 TheOne 已配置的模型整理公众号文章，通过微信接口管理草稿，并用 TheOne 内置浏览器协助发表或设置定时。",
+  "instructions": "复用 TheOne 当前会话已配置的模型，不连接或创建其他模型服务。根据任务使用公众号文章编辑、公众号草稿和公众号浏览器发表技能。用户只要求写作或修改时，不调用微信接口或操作公众号后台；用户明确要求放入或更新草稿箱时，必须先生成本地预览并检查文章、封面和图片路径，再调用草稿接口；用户明确要求发表或定时时，使用 TheOne 内置 Browser Use 打开公众号后台，不需要 Computer Use。登录、验证码或扫码交给用户本人完成；在最终发表或确认定时前再次显示文章标题、动作和时间并取得确认。缺少浏览器能力、登录状态、封面、凭证、IP 白名单、接口权限或真实素材时，说明具体缺口并停止相关步骤，不生成模拟成功结果。不得把 AppID、AppSecret、访问令牌、邮箱、验证码或私人截图内容写进 Bot 包、文章或回复。",
+  "skills": [
+    "skills/wechat-article/SKILL.md",
+    "skills/wechat-draft/SKILL.md",
+    "skills/wechat-browser/SKILL.md"
+  ],
+  "requiredCapabilities": ["files", "shell"],
+  "tags": ["公众号", "写作", "自动化"],
+  "starters": [
+    "把这些材料整理成一篇公众号文章，先生成本地预览",
+    "把这篇 .push.md 放进公众号草稿箱",
+    "更新公众号草稿里的这篇文章",
+    "检查公众号草稿、发布和群发接口权限",
+    "打开公众号后台，把指定草稿设置为明天早上 9 点发表"
+  ]
+}
